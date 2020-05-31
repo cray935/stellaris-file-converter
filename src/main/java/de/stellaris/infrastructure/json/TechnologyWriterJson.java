@@ -29,10 +29,8 @@ public class TechnologyWriterJson implements TechnologyWriter {
 
     try (Writer out = new FileWriter(output.toFile())) {
       mapper.writer()
-          .forType(Technology.class)
           .withDefaultPrettyPrinter()
-          .writeValuesAsArray(out)
-          .writeAll(technologies);
+          .writeValue(out, technologies);
     }
   }
 }
