@@ -1,0 +1,109 @@
+# These are simply constants that can be used to assign technologies to right cost for each tier easily. You can add your own as well.
+@example_cost = 1000
+@tier1cost1 = 500
+@tier1weight1 = 100
+ 
+technology_name = {                                 
+    # Code name of the technology. This is referred to in other files that unlock things via technology, such as 00_spaceport_modules.txt.
+    
+    cost = @tier1cost1                              
+    # This sets the cost of the technology in research points. 
+    # Parameters: constant, integer
+    
+    area = society                                  
+    # The area of technology this belongs to.
+    # Parameters: physics, society, engineering
+    
+    tier = 1                                        
+    # Each technology is split into tiers. 
+    # You need to have researched 5 technologies within one tier to see any technologies of the next tier above. There are five tiers.
+    # Parameters: 0, 1, 2, 3, 4, 5, found in 00_tiers.txt
+    
+    category = { biology }	                        
+    # The category of technology. Scientists with modifiers for this category will research this technology quicker/slower.
+    # Parameters: category_name found in 00_category.txt
+    
+    levels = -1
+    # Controls the number of levels this technology has. -1 means it is repeatable.
+    # Parameters: integer, -1
+    
+    cost_per_level = @repeatableTechLevelCost
+    # Controls the cost per level of this technology.
+    # Parameters: constant, integer
+    
+    prerequisites = { "prerequisite_technology" }   
+    # This technology requires "tech_eco_simulation" to have been researched before it will appear as an option
+    # Parameters: technology_name
+    
+    weight = @tier1weight1                          
+    # This is the initial weighting of the technology used to determine whether or not the technology should appear as an option.
+    # Parameters: constant, integer
+
+    gateway = biological
+    # a flavor-text-only entry that shows what kind of technology is behind this tech.
+    
+    ai_update_type = military
+    # controls AI auto-updating, ai_update_type will make the AI to update existing military ship designs and starbases,
+    # and if update type is all, civilian ships and stations will also be updated.
+    # Parameters: military, all
+    
+    start_tech = yes
+    # Defines this technology as a starting technology
+    
+    modifier = {
+        
+    }
+    # Contains any modifiers this technology directly changes.
+    
+    feature_flags = { my_tech_flag }
+    # flavor-text-only entries that tells the player what does this tech do.
+    # the localisation key "my_tech_flag" is used for this and "my_tech_flag_desc" is used for the tooltip.
+    # some feature flags are also hard-codely called, thus having their own functions.
+    
+    prereqfor_desc = {
+        ship = {
+            title = "EXAMPLE_TECH_TITLE"
+            desc = "EXAMPLE_TECH_DESC"
+        }
+    }
+    # This is used to add localisation telling the player that this technology is a prerequisite for another important technology
+
+    potential = {
+    }
+    # If this block is evaluated false, this tech can't be drawn as an option.
+    # Not even scripts or console commands can give this empire with this tech.
+    # DLC exclusive techs are hidden this way.
+    
+    weight_modifier = {
+        modifier = {
+            factor = 1.5
+            has_ethic = ethic_pacifist
+        }
+    }	
+    # These are the weighting modifier used to determine how likely this technology is drawn as an option.
+    # If weight is multiplied by 0, this tech can't be drawn as an option, but can still be given by scripts and console commands.
+     
+    ai_weight = {
+        factor = 1.5 #farms are good
+        modifier = {
+            factor = 2
+            has_ethic = ethic_pacifist
+        }
+    }
+    # These are the ai weighting modifiers used to by the AI to determine how likely it will research this technology.
+    
+    weight_groups = {
+        repeatable
+    }
+    # This is a weight group to be used later
+    
+    mod_weight_if_group_picked = {
+        repeatable = 0.01
+    }
+    # Weight of this technology is multiplied by each value if another technology from respective weight group have already been drawn as an option
+    # In this case, if there is already a repeatable tech drawn as an option, this tech is 0.01 times likely to be drawn.
+	
+	is_rare = yes
+	is_dangerous = yes
+	is_reverse_engineerable = yes
+}
