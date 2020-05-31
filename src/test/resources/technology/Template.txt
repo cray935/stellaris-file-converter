@@ -79,6 +79,17 @@ technology_name = {
             factor = 1.5
             has_ethic = ethic_pacifist
         }
+        modifier = {
+			factor = 1.5
+			research_leader = {
+				area = society
+				has_level > 4
+			}
+		}
+		modifier = {
+			factor = 0
+			num_communications < 1
+		}
     }	
     # These are the weighting modifier used to determine how likely this technology is drawn as an option.
     # If weight is multiplied by 0, this tech can't be drawn as an option, but can still be given by scripts and console commands.
