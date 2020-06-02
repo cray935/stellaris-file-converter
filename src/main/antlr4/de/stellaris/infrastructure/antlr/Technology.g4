@@ -40,6 +40,7 @@ technology
 	| ai_weight
 	| feature_flags
 	| is_reverse_engineerable
+	| icon
 	)+
 	'}'
 ;
@@ -66,3 +67,4 @@ is_rare : 'is_rare' '=' ('yes' | 'no') ;
 ai_weight : 'ai_weight' '=' '{' .*? '}' ;
 feature_flags : 'feature_flags' '=' '{' WORD (',' WORD)*? '}' ;
 is_reverse_engineerable : 'is_reverse_engineerable' '=' ('yes' | 'no') ;
+icon : 'icon' '=' WORD ;

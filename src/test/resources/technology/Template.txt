@@ -117,4 +117,5 @@ technology_name = {
 	is_rare = yes
 	is_dangerous = yes
 	is_reverse_engineerable = yes
+	icon = tech_volatile_motes
 }
