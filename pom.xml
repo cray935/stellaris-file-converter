@@ -13,7 +13,7 @@
 		<lombok.version>1.18.10</lombok.version>
 		<slf4j.version>1.7.30</slf4j.version>
 		<antlr.version>4.8</antlr.version>
-		<jackson.version>2.11.0</jackson.version>
+		<jackson.version>2.13.4.1</jackson.version>
 	</properties>
 
 	<dependencies>
